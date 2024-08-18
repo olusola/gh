@@ -5,7 +5,9 @@ const CartContext = createContext<CartContextType>({
 	cart: [],
 	addToCart: () => {},
 	clearCart: () => {},
+	removeProductFromCart: () => {},
 })
+
 const CartProvider = ({ children }: { children: ReactNode }) => {
 	const [cart, setCart] = useState<CartItemsType[]>([])
 
@@ -20,10 +22,21 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
 		}
 	}
 
+	const removeProductFromCart = (id: ProductType['id']) => {
+		const isProductInCart = cart.some((item) => item.product.id === id)
+		if (isProductInCart) {
+			setCart(cart.filter((item) => item.product.id !== id))
+		}
+	}
+
 	const clearCart = () => {
 		setCart([])
 	}
 
-	return <CartContext.Provider value={{ cart, addToCart, clearCart }}>{children}</CartContext.Provider>
+	return (
+		<CartContext.Provider value={{ cart, addToCart, clearCart, removeProductFromCart }}>
+			{children}
+		</CartContext.Provider>
+	)
 }
 export { CartProvider, CartContext }

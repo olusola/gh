@@ -15,7 +15,7 @@ const ProductCard = ({ productData }: ProductCardProps) => {
 
 	return (
 		<>
-			<Card className="">
+			<Card>
 				<CardContent className="space-y-2 py-3">
 					<img width={'100%'} height={300} src={image} alt={name} />
 					<CardTitle>{name}</CardTitle>

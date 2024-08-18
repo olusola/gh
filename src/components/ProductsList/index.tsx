@@ -7,7 +7,7 @@ type ProductListProps = {
 
 const ProductList = ({ productList }: ProductListProps) => {
 	return (
-		<div>
+		<>
 			<ul className="list-none grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8">
 				{productList?.map((product: ProductType) => {
 					return (
@@ -17,7 +17,7 @@ const ProductList = ({ productList }: ProductListProps) => {
 					)
 				})}
 			</ul>
-		</div>
+		</>
 	)
 }
 

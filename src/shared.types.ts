@@ -20,5 +20,10 @@ export type CartItemsType = {
 export type CartContextType = {
 	cart: CartItemsType[]
 	addToCart: (product: ProductType) => void
+	removeProductFromCart: (id: ProductType['id']) => void
 	clearCart: () => void
+}
+
+type OrderPayloadType = {
+	products: ProductType[]
 }
